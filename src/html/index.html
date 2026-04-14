@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Main</title>
+        <link rel="stylesheet" href="../css/style.css">
+    </head>
+    <body>
+        <div class="background1">
+        <button class="theme-toggle" id="themeToggle">🌙 Тёмная тема</button>
+        <header class="header">
+            <div class="nav">
+                <div class="container-wide">
+                    <div class="row space-beetween">
+                        <div class="logo">Fade</div>
+                        <div class="nav-menu">
+                            <ul>
+                                <li><a href="./index.html">Главная</a></li>
+                                <li><a href="./about us.html">Информация</a></li>
+                                <li><a href="./message.html">Запись</a></li>
+                            </ul>  
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-title">
+                <h1 class="high-text">Барбершоп - Fade</h1>
+                <h2 class="smal-text">Здесь варят кофе и рубят углы.</h2>
+            </div>
+        </header>
+            <section class="gallery-section">
+            <div class="gallery-container">
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="./ф1.jpg" alt="Стрижка 1" class="gallery-img">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="./ф2.jpg" alt="Стрижка 2" class="gallery-img">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="./ф3.jpg" alt="Стрижка 3" class="gallery-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+
+                    <div class="footer-col">
+                        <div class="footer-logo">Fade</div>
+                        <p class="footer-description">Создает образ уютного, но по-мужски жесткого места.</p>
+                    </div>
+                    
+                    <div class="footer-col">
+                        <h3 class="footer-title">Навигация</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">Главная</a></li>
+                            <li><a href="#">Информация</a></li>
+                            <li><a href="#">Запись</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-col">
+                        <h3 class="footer-title">Контакты</h3>
+                        <ul class="footer-contacts">
+                            <li> hair@gmail.ru</li>
+                            <li> +7 (999) 999-99-99 </li>
+                            <li> ул. Стриженная, д. 14</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-col">
+                        <h3 class="footer-title">Мы в соцсетях</h3>
+                        <div class="social-links">
+                            <a href="#" class="social-link">Telegram</a>
+                            <a href="#" class="social-link">VK</a>
+                            <a href="#" class="social-link">YouTube</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Fade. Все права защищены.</p>
+                </div>
+            </div>
+        </footer>
+        <script>
+            const body = document.body;
+            const toggleBtn = document.getElementById('themeToggle');
+
+            // Загружаем сохранённую тему
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                body.classList.add('dark-theme');
+                toggleBtn.textContent = '☀️ Светлая тема';
+            }
+
+            toggleBtn.addEventListener('click', () => {
+                const isDark = body.classList.toggle('dark-theme');
+                if (isDark) {
+                    toggleBtn.textContent = '☀️ Светлая тема';
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    toggleBtn.textContent = '🌙 Тёмная тема';
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+        </script>
+        </div>
+    </body>
+
+</html>
