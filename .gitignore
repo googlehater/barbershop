@@ -1,0 +1,12 @@
+# Docs
+*.docx
+*.doc
+*.tmp
+*~
+
+node_modules/
+
+# vs code
+.vscode/
+.idea/
+*.swp
