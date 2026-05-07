@@ -4,9 +4,14 @@
 *.tmp
 *~
 
+__pycache__/
 node_modules/
 
 # vs code
 .vscode/
 .idea/
 *.swp
+
+# secrets
+.env
+venv/
