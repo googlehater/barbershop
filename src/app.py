@@ -1,10 +1,15 @@
 # main flask file 
 from flask import Flask, render_template
 import requests
-import json
+
+from database.db import connect_db
+
 
 app = Flask(__name__)
 
+connection = connect_db()
+# обязательно поменять connect_db, нужно оспользовать пул соединений
+# иначе для многопоточности не сгодится
 
 from controller.home_controller import *
 from controller.about_us_controller import *

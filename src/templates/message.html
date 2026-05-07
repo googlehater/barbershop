@@ -45,11 +45,10 @@
                     <label for="service">Услуга *</label>
                     <select id="service" name="service" required>
                         <option value="" disabled selected>Выберите</option>
-                        <option value="men_haircut">Мужская стрижка — 1500 ₽</option>
-                        <option value="beard_trim">Стрижка бороды — 1000 ₽</option>
-                        <option value="haircut_beard">Стрижка + борода — 2200 ₽</option>
-                        <option value="shaving">Бритьё опасной бритвой — 1200 ₽</option>
-                        <option value="shaving">Стрижка ножницами — 1800 ₽</option>
+
+                        {% for service in services %}
+                        <option value="{{ service.id }}">{{ service.services_name }} -- {{ service.price }}</option>
+                        {% endfor %}
 
                     </select>
                 </div>
