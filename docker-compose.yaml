@@ -26,12 +26,18 @@ services:
       DB_USER: ${DB_USER}
       DB_PASSWORD: ${DB_PASSWORD}
       DB_NAME: ${DB_NAME}
+      FLASK_ENV: development
+      FLASKDEBUG: 1
     ports:
       - "8080:80"      
+    volumes:
+      - ./src:/app           # all folder prjct
+      - /app/__pycache__  # cache ignore
     depends_on:
       db:
         condition: service_healthy
     restart: on-failure
+    working_dir: /app
 
 volumes:
   pgdata:  

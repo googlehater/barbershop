@@ -3,6 +3,7 @@ from psycopg2.extras import RealDictCursor
 
 
 class ServiceModel:
+    # ToDo: BaseModel for theese 2 funcs
     def __init__(self, get_connection_func):
         """
         get_connection_func - for psycopg2 connection
