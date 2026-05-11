@@ -28,7 +28,7 @@
         <h2 class="booking-title">ЗАПИСЬ</h2>
         <p class="booking-subtitle">Заполните форму — мы подтвердим запись</p>
         
-        <form class="booking-form" id="bookingForm">
+        <form class="booking-form" id="bookingForm" method="POST">
             <div class="form-row">
                 <div class="form-group">
                     <label for="name">Имя *</label>
@@ -160,7 +160,7 @@
     
     if (form) {
         form.addEventListener('submit', function(e) {
-            e.preventDefault();
+            // e.preventDefault(); // - убрал временно, чтобы форма отправлялась на сервер и обрабатывалась там
             
             const name = document.getElementById('name').value.trim();
             const phone = document.getElementById('phone').value.trim();

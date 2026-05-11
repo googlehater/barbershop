@@ -9,7 +9,6 @@ A business card website for a barber shop. Three static pages, built with a focu
 
 ## Project Architecture
 
-
 ```
 Fade
 ├─ docker-compose.yaml
