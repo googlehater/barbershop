@@ -8,15 +8,49 @@
 - **CSS3** – кастомные стили, флексбоксы/гриды, адаптив
 
 ## Архитектура проекта
+
 ```
-Fade/
-├── src/    # исходники
-│ ├── css/  # стили
-│ ├── html/ # страницы (главная, услуги, контакты)
-│ └── img/  # изображения
-├── docs/   # документация (отчёты, задание и пр.)
-├── README_RUS.md
-└── README.md
+Fade
+├─ docker-compose.yaml
+├─ Dockerfile
+├─ docs
+│  ├─ Otchet_Ryzhov_23-II_1.pdf
+│  ├─ Задание к лабе 1.txt
+│  └─ Задание к лабе 2.txt
+├─ README.md
+├─ README_RUS.md
+├─ requirements.txt
+└─ src
+   ├─ app.py
+   ├─ controller
+   │  ├─ about_us_controller.py
+   │  ├─ appointment_controller.py
+   │  └─ home_controller.py
+   ├─ database
+   │  ├─ db.py
+   │  └─ init.sql
+   ├─ model
+   │  ├─ appointment_model.py
+   │  ├─ services_model.py
+   │  └─ __init__.py
+   ├─ static
+   │  ├─ css
+   │  │  └─ style.css
+   │  └─ img
+   │     ├─ barbershop_Interior.jpg
+   │     ├─ barbershop_vibe.jpg
+   │     ├─ Beard_care.jpg
+   │     ├─ haircut_1.jpg
+   │     ├─ haircut_2.jpg
+   │     ├─ haircut_3.jpg
+   │     ├─ like_a_model_cut.jpeg
+   │     ├─ Shaving_with_a_straight_razor.png
+   │     └─ tape_1.jpg
+   └─ templates
+      ├─ about_us.html
+      ├─ index.html
+      └─ message.html
+
 ```
 
 ## Запуск
