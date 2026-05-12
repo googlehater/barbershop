@@ -31,7 +31,7 @@ services:
     ports:
       - "8080:80"      
     volumes:
-      - ./src:/app           # all folder prjct
+      - ./src:/app        # all folder prjct
       - /app/__pycache__  # cache ignore
     depends_on:
       db:
