@@ -4,12 +4,18 @@
 
 ## Стек технологий
 
-- **HTML5** – семантическая разметка
-- **CSS3** – кастомные стили, флексбоксы/гриды, адаптив
+- Python 3
+- Flask
+- Jinja2
+- PostgreSQL
+- HTML5
+- CSS3
+- Docker
+- Docker Compose
 
 ## Архитектура проекта
 
-```
+```text
 Fade
 ├─ docker-compose.yaml
 ├─ Dockerfile
@@ -37,15 +43,6 @@ Fade
    │  ├─ css
    │  │  └─ style.css
    │  └─ img
-   │     ├─ barbershop_Interior.jpg
-   │     ├─ barbershop_vibe.jpg
-   │     ├─ Beard_care.jpg
-   │     ├─ haircut_1.jpg
-   │     ├─ haircut_2.jpg
-   │     ├─ haircut_3.jpg
-   │     ├─ like_a_model_cut.jpeg
-   │     ├─ Shaving_with_a_straight_razor.png
-   │     └─ tape_1.jpg
    └─ templates
       ├─ about_us.html
       ├─ index.html
@@ -53,15 +50,38 @@ Fade
 
 ```
 
+## Архитектура MVC
+
+- **Model** (model/) — работа с базой данных и выполнение SQL-запросов.
+- **View** (templates/) — HTML-шаблоны Jinja2.
+- **Controller** (controller/) — обработка HTTP-запросов и координация работы приложения.
+
+## База данных
+
+Инициализация структуры БД выполняется автоматически с помощью файла 
+```
+src/database/init.sql
+```
+
 ## Запуск
 
-Достаточно открыть любой `.html` файл из папки `src/html/` в браузере.
+В корне пректа запустить командой:
+
+```bash
+docker compose up
+```
+
+После запуска приложение будет доступно оп андресу:
+```
+http://localhost:8080/
+```
+
 
 ## Особенности
 
-- Чистый фронтенд без фреймворков
-- Логичная файловая организация
-- Готов к портированию на любой бэкенд
+- Архитектура MVC
+- База данных PostgreSQL
+- Позже добавится ORM
 
 ---
 

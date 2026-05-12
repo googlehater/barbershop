@@ -4,12 +4,18 @@ A business card website for a barber shop. Three static pages, built with a focu
 
 ## Tech Stack
 
-- **HTML5** – semantic markup
-- **CSS3** – custom styles, flexbox/grid, responsive design
+- Python 3
+- Flask
+- Jinja2
+- PostgreSQL
+- HTML5
+- CSS3
+- Docker
+- Docker Compose
 
 ## Project Architecture
 
-```
+```text
 Fade
 ├─ docker-compose.yaml
 ├─ Dockerfile
@@ -37,31 +43,42 @@ Fade
    │  ├─ css
    │  │  └─ style.css
    │  └─ img
-   │     ├─ barbershop_Interior.jpg
-   │     ├─ barbershop_vibe.jpg
-   │     ├─ Beard_care.jpg
-   │     ├─ haircut_1.jpg
-   │     ├─ haircut_2.jpg
-   │     ├─ haircut_3.jpg
-   │     ├─ like_a_model_cut.jpeg
-   │     ├─ Shaving_with_a_straight_razor.png
-   │     └─ tape_1.jpg
    └─ templates
       ├─ about_us.html
       ├─ index.html
       └─ message.html
+```
 
+## MVC Architecture
+- **Model** (model/) — database interaction and execution of SQL queries.
+- **View** (templates/) — Jinja2 HTML templates.
+- **Controller** (controller/) — handling HTTP requests and coordinating the application.
+
+## Database
+
+The database schema is initialized automatically using the following file:
+
+```
+src/database/init.sql
 ```
 
 ## How to Run
 
-Simply open any `.html` file from the `src/html/` folder in your browser.
+Run the following command in the project root directory:
+```bash
+docker compose up
+```
+
+After startup, the application will be available at:
+```
+http://localhost:8080/
+```
 
 ## Features
 
-- Pure frontend, no frameworks
-- Logical file organization
-- Ready to be ported to any backend
+- MVC architecture
+- PostgreSQL database
+- ORM will be added later
 
 ---
 
