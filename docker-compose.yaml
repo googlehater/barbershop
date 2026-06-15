@@ -9,7 +9,7 @@ services:
       - "${DB_PORT}:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
-      - ./src/database:/docker-entrypoint-initdb.d
+      # - ./src/database:/docker-entrypoint-initdb.d
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
       interval: 5s
@@ -18,7 +18,7 @@ services:
 
   backend:
     build: 
-      context: .
+      context: ./backend
       dockerfile: Dockerfile
     environment:
       DB_HOST: db
@@ -26,18 +26,26 @@ services:
       DB_USER: ${DB_USER}
       DB_PASSWORD: ${DB_PASSWORD}
       DB_NAME: ${DB_NAME}
-      FLASK_ENV: development
-      FLASKDEBUG: 1
+      DATABASE_URL: postgresql://${DB_USER}:${DB_PASSWORD}@db:5432/${DB_NAME}
+      # FLASK_ENV: development
+      # FLASKDEBUG: 1
     ports:
-      - "8080:80"      
+      - "8000:8000"      
     volumes:
-      - ./src:/app        # all folder prjct
+      - ./backend:/app        # all folder prjct
       - /app/__pycache__  # cache ignore
     depends_on:
       db:
         condition: service_healthy
     restart: on-failure
-    working_dir: /app
+    # working_dir: /app
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
 
 volumes:
   pgdata:  

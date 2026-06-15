@@ -74,6 +74,20 @@ After startup, the application will be available at:
 http://localhost:8080/
 ```
 
+```
+docker compose exec backend alembic upgrade head
+```
+
+
+```
+docker compose exec backend python seed.py
+```
+
+```
+
+```
+
+
 ## Features
 
 - MVC architecture
@@ -83,3 +97,68 @@ http://localhost:8080/
 ---
 
 *Educational project.*
+
+```
+LP
+├─ backend
+│  ├─ alembic
+│  │  ├─ alembic.ini
+│  │  └─ migrations
+│  ├─ app
+│  │  ├─ api
+│  │  ├─ core
+│  │  ├─ main.py
+│  │  ├─ models
+│  │  ├─ schemas
+│  │  └─ services
+│  ├─ Dockerfile
+│  └─ requirements.txt
+├─ docker-compose.yaml
+├─ docs
+│  ├─ Otchet_Ryzhov_23-II_1.pdf
+│  ├─ ryzhov_otchet_II.pdf
+│  ├─ Задание к лабе 1.txt
+│  ├─ Задание к лабе 2.txt
+│  └─ Задание к лабе 3.txt
+├─ frontend
+│  ├─ Dockerfile
+│  ├─ package.json
+│  └─ src
+│     ├─ App.jsx
+│     ├─ components
+│     ├─ pages
+│     └─ services
+├─ README.md
+├─ README_RUS.md
+└─ src
+   ├─ app.py
+   ├─ controller
+   │  ├─ about_us_controller.py
+   │  ├─ appointment_controller.py
+   │  └─ home_controller.py
+   ├─ database
+   │  ├─ db.py
+   │  └─ init.sql
+   ├─ model
+   │  ├─ appointment_model.py
+   │  ├─ services_model.py
+   │  └─ __init__.py
+   ├─ static
+   │  ├─ css
+   │  │  └─ style.css
+   │  └─ img
+   │     ├─ barbershop_Interior.jpg
+   │     ├─ barbershop_vibe.jpg
+   │     ├─ Beard_care.jpg
+   │     ├─ haircut_1.jpg
+   │     ├─ haircut_2.jpg
+   │     ├─ haircut_3.jpg
+   │     ├─ like_a_model_cut.jpeg
+   │     ├─ Shaving_with_a_straight_razor.png
+   │     └─ tape_1.jpg
+   └─ templates
+      ├─ about_us.html
+      ├─ index.html
+      └─ message.html
+
+```
