@@ -1,9 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
-from sqlalchemy.orm import Session
-from app.core.database import get_db
-from app.models.user_model import User
-from app.models.appointment_model import Appointment
+from app.services.appointment_service import AppointmentService
 from app.schemas.appointment import AppointmentCreate, AppointmentOut
+from app.models.user_model import User
 from app.api.deps import get_current_user
 
 router = APIRouter(prefix="/appointments", tags=["appointments"])
@@ -11,26 +9,14 @@ router = APIRouter(prefix="/appointments", tags=["appointments"])
 @router.post("/", response_model=AppointmentOut)
 def create_appointment(
     apt: AppointmentCreate,
-    db: Session = Depends(get_db),
-    current_user: User = Depends(get_current_user)
+    current_user: User = Depends(get_current_user),
+    appointment_service: AppointmentService = Depends(AppointmentService),
 ):
-    db_apt = Appointment(
-        user_id=current_user.id,
-        master_id=apt.master_id,
-        service_id=apt.service_id,
-        appointment_date=apt.appointment_date,
-        client_wish=apt.client_wish,
-        status="confirmed"
-    )
-    db.add(db_apt)
-    db.commit()
-    db.refresh(db_apt)
-    return db_apt
+    return appointment_service.create_appointment(current_user.id, apt)
 
 @router.get("/my", response_model=list[AppointmentOut])
 def get_my_appointments(
-    db: Session = Depends(get_db),
-    current_user: User = Depends(get_current_user)
+    current_user: User = Depends(get_current_user),
+    appointment_service: AppointmentService = Depends(AppointmentService),
 ):
-    appointments = db.query(Appointment).filter(Appointment.user_id == current_user.id).all()
-    return appointments
+    return appointment_service.get_user_appointments(current_user.id)
